@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Screen Printing - Sablon Berkualitas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+            --royal-gold: #D4AF37;  /* Rich gold */
+            --deep-navy: #0A1F44;   /* Navy blue yang lebih dalam */
+            --burgundy: #6D0F2E;     /* Maroon yang lebih lembut */
+            --cream: #FFF8E8;        /* Cream yang lebih hangat */
+            --light-gold: #F8E9A1;   /* Light gold yang lebih cerah */
+            --dark-gold: #B38B2D;   /* Dark gold untuk aksen */
+        }
+        
+        .bg-royal-gold {
+            background-color: var(--royal-gold);
+        }
+        
+        .text-royal-gold {
+            color: var(--royal-gold);
+        }
+        
+        .border-royal-gold {
+            border-color: var(--royal-gold);
+        }
+        
+        .bg-deep-navy {
+            background-color: var(--deep-navy);
+        }
+        
+        .text-deep-navy {
+            color: var(--deep-navy);
+        }
+        
+        .bg-burgundy {
+            background-color: var(--burgundy);
+        }
+        
+        .text-burgundy {
+            color: var(--burgundy);
+        }
+        
+        .bg-cream {
+            background-color: var(--cream);
+        }
+        
+        .text-cream {
+            color: var(--cream);
+        }
+        
+        .bg-light-gold {
+            background-color: var(--light-gold);
+        }
+        
+        .hover\:bg-burgundy:hover {
+            background-color: var(--burgundy);
+        }
+        
+        .bg-radial {
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.1), transparent 70%);
+        }
+        
+        /* Custom animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+        
+        /* Gallery hover effect */
+        .gallery-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mobile menu animation */
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        
+        /* Button pulse effect */
+        .btn-pulse:hover {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+        
+        /* Royal badge */
+        .royal-badge {
+            background: linear-gradient(135deg, var(--royal-gold) 0%, var(--light-gold) 100%);
+            color: var(--deep-navy);
+            font-weight: bold;
+        }
+        
+        /* Pricing card highlight */
+        .pricing-highlight {
+            border: 2px solid var(--royal-gold);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Testimonial card */
+        .testimonial-card {
+            background: white;
+            border-top: 4px solid var(--royal-gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Section headers */
+        .section-header {
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--royal-gold);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 bg-cream">
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 z-50 hidden bg-white/95 backdrop-blur-sm">
+        <div class="flex justify-end p-4">
+            <button id="closeMenu" class="text-gray-600 hover:text-royal-gold p-2">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#" class="text-2xl font-medium text-gray-800 hover:text-royal-gold transition">Home</a>
+            <a href="#services" class="text-2xl font-medium text-gray-800 hover:text-royal-gold transition">Layanan</a>
+            <a href="#portfolio" class="text-2xl font-medium text-gray-800 hover:text-royal-gold transition">Portofolio</a>
+            <a href="#pricing" class="text-2xl font-medium text-gray-800 hover:text-royal-gold transition">Harga</a>
+            <a href="#contact" class="text-2xl font-medium text-gray-800 hover:text-royal-gold transition">Kontak</a>
+            <a href="#faq" class="text-2xl font-medium text-gray-800 hover:text-royal-gold transition">FAQ</a>
+        </div>
+    </div>
+
+    <div class="relative overflow-hidden">
+        <!-- Background pattern -->
+        <div aria-hidden="true" class="h-full w-full absolute inset-y-0">
+            <div class="h-full relative">
+                <svg class="md:translate-y-1/2 sm:translate-x-1/2 lg:translate-x-full absolute right-full transform translate-y-1/3 translate-x-1/4" width="404" height="784" fill="none" viewBox="0 0 404 784">
+                    <defs>
+                        <pattern id="e229dbec-10e9-49ee-8ec3-0286ca089edf" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="4" height="4" class="text-gray-100" fill="currentColor"></rect>
+                        </pattern>
+                    </defs>
+                    <rect width="404" height="784" fill="url(#e229dbec-10e9-49ee-8ec3-0286ca089edf)"></rect>
+                </svg>
+                <svg class="sm:-translate-x-1/2 md:-translate-x-3/4 lg:-translate-x-full absolute left-full transform -translate-y-3/4 -translate-x-1/4" width="404" height="784" fill="none" viewBox="0 0 404 784">
+                    <defs>
+                        <pattern id="d2a68204-c383-44b1-b99f-42ccff4e5365" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <rect x="0" y="0" width="4" height="4" class="text-gray-100" fill="currentColor"></rect>
+                        </pattern>
+                    </defs>
+                    <rect width="404" height="784" fill="url(#d2a68204-c383-44b1-b99f-42ccff4e5365)"></rect>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="pt-6 pb-16 sm:pb-24 bg-radial relative">
+            <div class="mx-auto px-4 sm:px-6 max-w-7xl">
+                <nav aria-label="Global" class="items-center justify-between sm:h-10 md:justify-center relative flex">
+                    <div class="items-center md:absolute md:inset-y-0 md:left-0 flex flex-1">
+                        <div class="items-center justify-between w-full md:w-auto flex">
+                            <a href="#" class="flex items-center">
+                                <span class="sr-only">Royal Screen Printing</span>
+                                <img alt="logo" src="https://via.placeholder.com/150x50?text=Royal+Screen" class="h-8 w-auto sm:h-10" />
+                            </a>
+                            <div class="items-center md:hidden -mr-2 flex">
+                                <button id="openMenu" aria-expanded="false" type="button" class="mobile-menu-button p-2 inline-flex hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-royal-gold bg-white rounded-md items-center justify-center text-gray-500">
+                                    <span class="sr-only">Open main menu</span>
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:flex md:space-x-10 hidden">
+                        <a href="#" class="font-medium text-deep-navy hover:text-royal-gold transition">Home</a>
+                        <a href="#services" class="font-medium text-deep-navy hover:text-royal-gold transition">Layanan</a>
+                        <a href="#portfolio" class="font-medium text-deep-navy hover:text-royal-gold transition">Portofolio</a>
+                        <a href="#pricing" class="font-medium text-deep-navy hover:text-royal-gold transition">Harga</a>
+                        <a href="#contact" class="font-medium text-deep-navy hover:text-royal-gold transition">Kontak</a>
+                        <a href="#faq" class="font-medium text-deep-navy hover:text-royal-gold transition">FAQ</a>
+                    </div>
+                    <div class="md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0 hidden">
+                        <a href="https://wa.me/6281234567890" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-deep-navy bg-royal-gold hover:bg-burgundy transition royal-badge">
+                            <i class="fab fa-whatsapp mr-2"></i> Pesan Sekarang
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="bg-cream dark:bg-gray-900 animate__animated animate__fadeIn">
+            <div class="grid py-8 px-4 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+                <div class="place-self-center mr-auto lg:col-span-7">
+                    <h1 class="mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl text-deep-navy fade-in-up">Royal Screen Printing</h1>
+                    <h1 class="mb-4 max-w-1xl text-xl font-extrabold leading-none md:text-2xl xl:text-3xl text-burgundy fade-in-up delay-100">Cetak Kualitas Royal di Setiap Karya Anda</h1>
+                    <p class="mb-6 max-w-1xl font-light text-gray-600 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 fade-in-up delay-200">"Royal Screen Printing menyediakan jasa sablon berkualitas tinggi dengan teknologi terkini. Kami mengutamakan ketajaman desain, ketahanan warna, dan kepuasan pelanggan. Percayakan kebutuhan sablon Anda kepada ahli kami!".</p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 fade-in-up delay-300">
+                        <a href="https://wa.me/6281234567890" class="inline-flex justify-center items-center py-3 px-5 mr-3 text-base font-medium text-center text-deep-navy rounded-lg bg-royal-gold hover:bg-burgundy focus:ring-4 focus:ring-royal-gold/50 transition btn-pulse royal-badge">
+                            <i class="fab fa-whatsapp mr-2"></i> Pesan Sekarang
+                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </a>
+                        <a href="#services" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-deep-navy rounded-lg border border-deep-navy hover:bg-deep-navy/10 focus:ring-4 focus:ring-deep-navy/20 transition">
+                            <i class="fas fa-list-ul mr-2"></i> Lihat Layanan Kami
+                        </a> 
+                    </div>
+                </div>
+                <div class="hidden lg:mt-0 lg:col-span-5 lg:flex animate__animated animate__fadeInRight">
+                    <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Screen printing process" class="rounded-lg shadow-xl transform hover:scale-105 transition duration-500 border-4 border-royal-gold">
+                </div>                
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="bg-white dark:bg-gray-800 py-16 scroll-mt-16">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12 animate__animated animate__fadeIn">
+                    <h2 class="section-header text-3xl md:text-4xl font-bold text-deep-navy mb-3">Layanan Kami</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Berbagai jenis layanan sablon berkualitas tinggi</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-cream p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp border-t-4 border-royal-gold">
+                        <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-royal-gold/10 text-royal-gold mx-auto">
+                            <i class="fas fa-tshirt text-2xl"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold text-deep-navy text-center">Sablon Kaos</h3>
+                        <p class="text-gray-600 text-center">"Hasil sablon rapi dan tahan lama untuk kaos polo, cotton, atau polyester. Cocok untuk seragam, event, atau bisnis Anda!"</p>
+                    </div>
+                    
+                    <div class="bg-cream p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp delay-100 border-t-4 border-royal-gold">
+                        <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-royal-gold/10 text-royal-gold mx-auto">
+                            <i class="fas fa-hat-cowboy text-2xl"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold text-deep-navy text-center">Sablon Topi</h3>
+                        <p class="text-gray-600 text-center">"Sablon premium pada topi dengan detail tajam. Tidak mudah retak meski dicuci berulang kali."</p>
+                    </div>
+                    
+                    <div class="bg-cream p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp delay-200 border-t-4 border-royal-gold">
+                        <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-royal-gold/10 text-royal-gold mx-auto">
+                            <i class="fas fa-shopping-bag text-2xl"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold text-deep-navy text-center">Sablon Tas</h3>
+                        <p class="text-gray-600 text-center">"Sablon kuat untuk tas spunbond, kanvas, atau tote bag. Ideal untuk merchandise perusahaan atau acara."</p>
+                    </div>
+                    
+                    <div class="bg-cream p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp delay-300 border-t-4 border-royal-gold">
+                        <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full bg-royal-gold/10 text-royal-gold mx-auto">
+                            <i class="fas fa-palette text-2xl"></i>
+                        </div>
+                        <h3 class="mb-2 text-xl font-bold text-deep-navy text-center">Custom Design</h3>
+                        <p class="text-gray-600 text-center">"Tim desainer kami siap mewujudkan ide Anda. Konsultasi gratis sebelum produksi!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Gallery -->
+        <section id="portfolio" class="py-16 bg-cream scroll-mt-16">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12 animate__animated animate__fadeIn">
+                    <h2 class="section-header text-3xl md:text-4xl font-bold text-deep-navy mb-3">Portofolio Kami</h2>
+                    <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Karya terbaik yang telah kami hasilkan</p>
+                </div>
+                
+                <div class="flex flex-wrap items-center justify-center mb-8 animate__animated animate__fadeIn">
+                    <button type="button" data-filter="all" class="filter-btn bg-deep-navy text-white border border-deep-navy rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 transition royal-badge">Semua Kategori</button>
+                    <button type="button" data-filter="tshirt" class="filter-btn bg-white text-deep-navy border border-deep-navy rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 hover:bg-deep-navy/10 transition">Baju</button>
+                    <button type="button" data-filter="hat" class="filter-btn bg-white text-deep-navy border border-deep-navy rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 hover:bg-deep-navy/10 transition">Topi</button>
+                    <button type="button" data-filter="bag" class="filter-btn bg-white text-deep-navy border border-deep-navy rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 hover:bg-deep-navy/10 transition">Tas</button>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Item 1 -->
+                    <div class="gallery-item tshirt animate__animated animate__fadeIn" data-category="tshirt">
+                        <img class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition" src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Sablon Kaos 1">
+                        <div class="p-4 bg-white rounded-b-lg">
+                            <h3 class="text-lg font-semibold text-deep-navy">Kaos Sablon Musik</h3>
+                            <p class="text-gray-600">Desain vintage untuk band rock</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="gallery-item hat animate__animated animate__fadeIn" data-category="hat">
+                        <img class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition" src="https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Sablon Topi 1">
+                        <div class="p-4 bg-white rounded-b-lg">
+                            <h3 class="text-lg font-semibold text-deep-navy">Topi Baseball Custom</h3>
+                            <p class="text-gray-600">Logo perusahaan dengan warna cerah</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="gallery-item bag animate__animated animate__fadeIn" data-category="bag">
+                        <img class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80" alt="Sablon Tas 1">
+                        <div class="p-4 bg-white rounded-b-lg">
+                            <h3 class="text-lg font-semibold text-deep-navy">Tas Promosi Event</h3>
+                            <p class="text-gray-600">Sablon full color untuk konferensi</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="gallery-item tshirt animate__animated animate__fadeIn" data-category="tshirt">
+                        <img class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition" src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Sablon Kaos 2">
+                        <div class="p-4 bg-white rounded-b-lg">
+                            <h3 class="text-lg font-semibold text-deep-navy">Kaos Komunitas</h3>
+                            <p class="text-gray-600">Desain minimalis untuk komunitas</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="gallery-item hat animate__animated animate__fadeIn" data-category="hat">
+                        <img class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition" src="https://images.unsplash.com/photo-1591522812596-5d0c14441c4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Sablon Topi 2">
+                        <div class="p-4 bg-white rounded-b-lg">
+                            <h3 class="text-lg font-semibold text-deep-navy">Topi Trucker</h3>
+                            <p class="text-gray-600">Sablon mesh dengan efek timbul</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="gallery-item bag animate__animated animate__fadeIn" data-category="bag">
+                        <img class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Sablon Tas 2">
+                        <div class="p-4 bg-white rounded-b-lg">
+                            <h3 class="text-lg font-semibold text-deep-navy">Tas Kanvas Custom</h3>
+                            <p class="text-gray-600">Desain artwork untuk toko retail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-16 px-4 sm:px-6 lg:px-8 bg-white scroll-mt-16">
+            <div class="max-w-7xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-12 animate__animated animate__fadeIn">
+                    <h2 class="section-header text-3xl md:text-4xl font-bold text-deep-navy mb-3">Harga Layanan Sablon</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Harga transparan tanpa biaya tersembunyi. Konsultasi desain gratis!</p>
+                </div>
+
+                <!-- Pricing Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Paket 1: Sablon Kaos -->
+                    <div class="bg-cream rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate__animated animate__fadeInUp border-t-4 border-royal-gold">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-deep-navy mb-1">Sablon Kaos</h3>
+                            <p class="text-gray-600 mb-4">Untuk berbagai jenis bahan kaos</p>
+                            <div class="mb-6">
+                                <span class="text-4xl font-bold text-royal-gold">Rp20.000</span>
+                                <span class="text-gray-500">/pcs</span>
+                            </div>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Minimal order: <span class="font-semibold ml-1">12 pcs</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Bahan: Katun/Polyester
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Free desain sederhana
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Tahan hingga 50x pencucian
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20layanan%20Sablon%20Kaos" class="block w-full bg-royal-gold hover:bg-burgundy text-deep-navy font-medium py-3 px-6 rounded-lg transition duration-300 text-center royal-badge">
+                                <i class="fab fa-whatsapp mr-2"></i> Pesan Sekarang
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Paket 2: Sablon Topi (Highlight) -->
+                    <div class="bg-cream rounded-xl shadow-lg overflow-hidden pricing-highlight relative transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate__animated animate__fadeInUp delay-100">
+                        <div class="absolute top-4 right-4 royal-badge text-xs font-bold px-3 py-1 rounded-full">
+                            POPULAR
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-deep-navy mb-1">Sablon Topi</h3>
+                            <p class="text-gray-600 mb-4">Untuk berbagai model topi</p>
+                            <div class="mb-6">
+                                <span class="text-4xl font-bold text-royal-gold">Rp25.000</span>
+                                <span class="text-gray-500">/pcs</span>
+                            </div>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Minimal order: <span class="font-semibold ml-1">10 pcs</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Jenis: Snapback/Bucket Hat
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Warna tidak mudah pudar
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Free mockup desain
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20layanan%20Sablon%20Topi" class="block w-full bg-royal-gold hover:bg-burgundy text-deep-navy font-medium py-3 px-6 rounded-lg transition duration-300 text-center royal-badge">
+                                <i class="fab fa-whatsapp mr-2"></i> Pesan Sekarang
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Paket 3: Sablon Tas -->
+                    <div class="bg-cream rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate__animated animate__fadeInUp delay-200 border-t-4 border-royal-gold">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-deep-navy mb-1">Sablon Tas</h3>
+                            <p class="text-gray-600 mb-4">Untuk tas spunbond, kanvas, dll</p>
+                            <div class="mb-6">
+                                <span class="text-4xl font-bold text-royal-gold">Rp15.000</span>
+                                <span class="text-gray-500">/pcs</span>
+                            </div>
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Minimal order: <span class="font-semibold ml-1">20 pcs</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Bahan: Spunbond/Kanvas
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Sablon timbul (opsional)
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-check-circle text-royal-gold mr-2"></i>
+                                    Tinta eco-friendly
+                                </li>
+                            </ul>
+                            <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20dengan%20layanan%20Sablon%20Tas" class="block w-full bg-royal-gold hover:bg-burgundy text-deep-navy font-medium py-3 px-6 rounded-lg transition duration-300 text-center royal-badge">
+                                <i class="fab fa-whatsapp mr-2"></i> Pesan Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catatan -->
+                <div class="mt-12 text-center bg-royal-gold/10 p-4 rounded-lg max-w-3xl mx-auto animate__animated animate__fadeIn border border-royal-gold">
+                    <p class="text-gray-800">
+                        <span class="font-semibold text-deep-navy">💡 Custom order?</span> Hubungi kami untuk penawaran khusus (order besar, desain kompleks, dll).
+                        <a href="#contact" class="text-deep-navy hover:underline ml-1 font-medium">Klik di sini</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 px-4 sm:px-6 lg:px-8 bg-cream scroll-mt-16">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 animate__animated animate__fadeIn">
+                    <h2 class="section-header text-3xl md:text-4xl font-bold text-deep-navy mb-3">Pertanyaan Umum</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Temukan jawaban untuk pertanyaan yang sering diajukan</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden animate__animated animate__fadeInUp bg-white">
+                        <button class="faq-toggle w-full flex justify-between items-center p-4 md:p-6 text-left hover:bg-gray-50 transition">
+                            <h3 class="text-lg font-medium text-deep-navy">Berapa lama proses produksi sablon?</h3>
+                            <i class="fas fa-chevron-down text-royal-gold transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-4 md:px-6 pb-4 md:pb-6">
+                            <p class="text-gray-600">Waktu produksi tergantung pada jumlah dan kompleksitas desain. Untuk order standar (12-50 pcs), biasanya membutuhkan waktu 3-5 hari kerja. Order besar (>100 pcs) membutuhkan waktu sekitar 7-10 hari kerja. Kami akan memberikan estimasi waktu yang lebih akurat setelah menerima detail order Anda.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden animate__animated animate__fadeInUp delay-100 bg-white">
+                        <button class="faq-toggle w-full flex justify-between items-center p-4 md:p-6 text-left hover:bg-gray-50 transition">
+                            <h3 class="text-lg font-medium text-deep-navy">Apakah bisa sablon dengan desain sendiri?</h3>
+                            <i class="fas fa-chevron-down text-royal-gold transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-4 md:px-6 pb-4 md:pb-6">
+                            <p class="text-gray-600">Tentu saja! Kami menerima desain custom dari pelanggan. File yang kami terima dalam format vektor (AI, EPS) atau high-resolution (min. 300dpi). Jika Anda tidak memiliki desain, tim desainer kami siap membantu membuat desain sesuai kebutuhan Anda dengan biaya tambahan yang terjangkau.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden animate__animated animate__fadeInUp delay-200 bg-white">
+                        <button class="faq-toggle w-full flex justify-between items-center p-4 md:p-6 text-left hover:bg-gray-50 transition">
+                            <h3 class="text-lg font-medium text-deep-navy">Bagaimana perawatan produk yang sudah disablon?</h3>
+                            <i class="fas fa-chevron-down text-royal-gold transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-4 md:px-6 pb-4 md:pb-6">
+                            <p class="text-gray-600">Untuk menjaga kualitas sablon, kami merekomendasikan:
+                                <ul class="list-disc pl-5 mt-2 space-y-1">
+                                    <li>Cuci dengan air dingin (maks 30°C)</li>
+                                    <li>Balik bagian dalam sebelum mencuci</li>
+                                    <li>Hindari penggunaan pemutih</li>
+                                    <li>Setrika di bagian dalam atau dengan suhu rendah</li>
+                                    <li>Jangan disikat langsung pada bagian sablon</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden animate__animated animate__fadeInUp delay-300 bg-white">
+                        <button class="faq-toggle w-full flex justify-between items-center p-4 md:p-6 text-left hover:bg-gray-50 transition">
+                            <h3 class="text-lg font-medium text-deep-navy">Apakah bisa order sample sebelum produksi massal?</h3>
+                            <i class="fas fa-chevron-down text-royal-gold transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-4 md:px-6 pb-4 md:pb-6">
+                            <p class="text-gray-600">Ya, kami menyediakan layanan pembuatan sample dengan biaya tertentu. Biaya sample akan dikembalikan/dipotong jika Anda melanjutkan dengan order massal. Ini adalah cara terbaik untuk memastikan kualitas dan ketepatan warna sebelum memproduksi dalam jumlah besar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 animate__animated animate__fadeIn">
+                    <h2 class="section-header text-3xl md:text-4xl font-bold text-deep-navy mb-3">Apa Kata Pelanggan Kami</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Testimoni dari klien yang puas dengan layanan kami</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card p-6 rounded-xl hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Testimonial 1" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-deep-navy">Sarah Wijaya</h4>
+                                <div class="flex text-royal-gold">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"Hasil sablon kaos untuk event perusahaan sangat rapi dan tahan lama. Warna tidak pudar meski sudah dicuci berkali-kali. Pelayanan cepat dan harga kompetitif!"</p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card p-6 rounded-xl hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp delay-100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Testimonial 2" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-deep-navy">Budi Santoso</h4>
+                                <div class="flex text-royal-gold">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"Topi dengan logo brand saya dibuat dengan sangat detail. Tim desainer membantu menyempurnakan konsep yang saya inginkan. Sudah order 3x dan selalu puas dengan hasilnya."</p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card p-6 rounded-xl hover:shadow-lg transition duration-300 animate__animated animate__fadeInUp delay-200">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimonial 3" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-deep-navy">Dewi Rahayu</h4>
+                                <div class="flex text-royal-gold">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"Tas promosi untuk acara kami selesai tepat waktu dengan kualitas sablon yang bagus. Responsif via WhatsApp dan memberikan update progress. Sangat recommended!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 px-4 sm:px-6 lg:px-8 bg-cream scroll-mt-16">
+            <div class="max-w-7xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-12 animate__animated animate__fadeIn">
+                    <h2 class="section-header text-3xl md:text-4xl font-bold text-deep-navy mb-3">Hubungi Kami</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Pesan sekarang atau konsultasikan kebutuhan sablon Anda</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div class="space-y-6 animate__animated animate__fadeInLeft">
+                        <div class="flex items-start bg-white p-6 rounded-lg shadow-sm">
+                            <div class="bg-royal-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-royal-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-deep-navy mb-1">Lokasi</h3>
+                                <p class="text-gray-600">Jl. Contoh No. 123, Bandung, Jawa Barat</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start bg-white p-6 rounded-lg shadow-sm">
+                            <div class="bg-royal-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-royal-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-deep-navy mb-1">Telepon/WhatsApp</h3>
+                                <p class="text-gray-600">+62 812 3456 7890</p>
+                                <a href="https://wa.me/6281234567890" class="text-deep-navy hover:underline inline-block mt-1 transition font-medium">
+                                    <i class="fab fa-whatsapp mr-1"></i> Kirim Pesan WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start bg-white p-6 rounded-lg shadow-sm">
+                            <div class="bg-royal-gold/10 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-royal-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-deep-navy mb-1">Email</h3>
+                                <p class="text-gray-600">info@royalscreen.com</p>
+                                <a href="mailto:info@royalscreen.com" class="text-deep-navy hover:underline inline-block mt-1 transition font-medium">
+                                    <i class="fas fa-paper-plane mr-1"></i> Kirim Email
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="pt-4 bg-white p-6 rounded-lg shadow-sm">
+                            <h3 class="text-xl font-semibold text-deep-navy mb-3">Media Sosial</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-100 hover:bg-deep-navy hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-instagram text-gray-700 hover:text-white"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 hover:bg-deep-navy hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-facebook-f text-gray-700 hover:text-white"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 hover:bg-deep-navy hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-tiktok text-gray-700 hover:text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="bg-white p-6 sm:p-8 rounded-xl shadow-sm animate__animated animate__fadeInRight">
+                        <h3 class="text-2xl font-semibold text-deep-navy mb-6">Kirim Pesan</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-royal-gold focus:border-transparent transition" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-royal-gold focus:border-transparent transition" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Nomor Telepon</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-royal-gold focus:border-transparent transition" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Pesan</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-royal-gold focus:border-transparent transition" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-royal-gold hover:bg-burgundy text-deep-navy font-medium py-3 px-6 rounded-lg transition duration-300 royal-badge">
+                                <i class="fas fa-paper-plane mr-2"></i> Kirim Pesan
+                            </button>
+                        </form>
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                            Pesan Anda telah terkirim! Kami akan segera menghubungi Anda.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-deep-navy text-white">
+            <div class="max-w-4xl mx-auto text-center animate__animated animate__fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Siap Mewujudkan Desain Anda?</h2>
+                <p class="text-xl mb-8">Konsultasi gratis dengan tim ahli kami untuk mendapatkan hasil sablon terbaik.</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="https://wa.me/6281234567890" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-deep-navy bg-royal-gold hover:bg-light-gold transition btn-pulse royal-badge">
+                        <i class="fab fa-whatsapp mr-2"></i> Chat via WhatsApp
+                    </a>
+                    <a href="tel:+6281234567890" class="inline-flex items-center justify-center px-6 py-3 border border-white text-base font-medium rounded-md text-white bg-transparent hover:bg-white/10 transition">
+                        <i class="fas fa-phone-alt mr-2"></i> Telepon Kami
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-deep-navy text-white pt-12 pb-6 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <!-- About -->
+                    <div class="md:col-span-2">
+                        <h3 class="text-xl font-bold mb-4 text-royal-gold">Royal Screen Printing</h3>
+                        <p class="text-gray-300 mb-4">Spesialis sablon premium dengan kualitas royal untuk kebutuhan bisnis dan personal Anda.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-300 hover:text-royal-gold transition duration-300">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-royal-gold transition duration-300">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-royal-gold transition duration-300">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-royal-gold">Menu</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                            <li><a href="#services" class="text-gray-300 hover:text-white transition duration-300">Layanan</a></li>
+                            <li><a href="#portfolio" class="text-gray-300 hover:text-white transition duration-300">Portofolio</a></li>
+                            <li><a href="#pricing" class="text-gray-300 hover:text-white transition duration-300">Harga</a></li>
+                            <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Kontak</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4 text-royal-gold">Kontak</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-2 text-royal-gold"></i>
+                                <span>Jl. Contoh No.123, Bandung</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-2 text-royal-gold"></i>
+                                <span>+62 812 3456 7890</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-2 text-royal-gold"></i>
+                                <span>info@royalscreen.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="border-t border-deep-navy/50 pt-6 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-2 md:mb-0">© 2024 Royal Screen Printing. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-royal-gold text-sm transition duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-royal-gold text-sm transition duration-300">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button id="backToTop" class="fixed bottom-6 right-6 bg-royal-gold text-deep-navy w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-opacity duration-300 opacity-0 invisible hover:bg-burgundy">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const openMenuBtn = document.getElementById('openMenu');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        openMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Gallery Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-deep-navy', 'text-white', 'royal-badge');
+                    btn.classList.add('bg-white', 'text-deep-navy', 'border-deep-navy');
+                });
+                
+                // Add active class to clicked button
+                button.classList.remove('bg-white', 'text-deep-navy', 'border-deep-navy');
+                button.classList.add('bg-deep-navy', 'text-white', 'royal-badge');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // FAQ Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                // Toggle content
+                content.classList.toggle('hidden');
+                
+                // Rotate icon
+                icon.classList.toggle('rotate-180');
+                
+                // Close other open FAQs
+                faqToggles.forEach(otherToggle => {
+                    if (otherToggle !== toggle) {
+                        otherToggle.nextElementSibling.classList.add('hidden');
+                        otherToggle.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(() => {
+                contactForm.reset();
+                formSuccess.classList.remove('hidden');
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formSuccess.classList.add('hidden');
+                }, 5000);
+            }, 1000);
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    const animationClass = element.classList.contains('fade-in-up') ? 'fadeInUp' : 
+                                         element.classList.contains('fadeInLeft') ? 'fadeInLeft' :
+                                         element.classList.contains('fadeInRight') ? 'fadeInRight' : 'fadeIn';
+                    element.style.opacity = '1';
+                    element.classList.add(`animate__${animationClass}`);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
